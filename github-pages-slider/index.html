@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>如何在 github 上建立自己的 website</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+        <style type="text/css">
+            .reveal .slides section .text-red {
+                color: #ff2c2d;
+            }
+
+            .reveal .slides section .text-green {
+                color: #17ff2e;
+            }
+
+            .reveal .slides section .text-blue {
+                color: #1b91ff;
+            }
+
+            .reveal .slides section pre code {
+                word-wrap: break-word;
+            }
+
+            .reveal .slides section img {
+                background-color: #fff;
+            }
+
+            .reveal .slides section .style-1 * {
+                text-align: center;
+            }
+
+            .reveal .slides section .style-1 thead th {
+                background-color: #777;
+            }
+
+            .reveal .slides section .style-1 th,
+            .reveal .slides section .style-1 td {
+                padding: 20px 60px;
+                border: 1px solid;
+            }
+        </style>
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/tomorrow-night.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>如何在 github 上建立自己的 website</h1>
+                    <h3>&nbsp;</h3>
+                    <p>Joshua 2015-10-21</p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>要把檔案恢復到編輯前的狀態，大家都是怎麼做的呢？</h2>
+                    </section>
+
+                    <section>
+                        <img src="https://backlogtool.com/git-guide/tw/img/post/intro/capture_intro1_1_1.png">
+                        <p>最簡單的方法就是先複製編輯前的檔案，使用這個方法時通常都會在檔案名稱或目錄名稱上添加編輯的日期。</p>
+                    </section>
+
+                    <section>
+                        <h2>那多人編輯同一個檔案，會發生什麼事情呢?</h2>
+                    </section>
+
+                    <section>
+                        <img src="https://backlogtool.com/git-guide/tw/img/post/intro/capture_intro1_1_2.png">
+                        <p>先進行編輯的人的修改內容會被覆蓋，相信大家都有這樣的經歷。</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>版本控制</h2>
+                        <img src="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png">
+                        <p>Git、SVK、SVC、BitKeeper、Perforce、Subversion...</p>
+                    </section>
+
+                    <section>
+                        <h2>什麼是版本控制?</h2>
+                        <p>版本控制是維護工程藍圖的標準作法，能追蹤工程藍圖從誕生一直到定案的過程。此外，版本控制也是一種軟體工程技巧，藉此能在軟體開發的過程中，確保由不同人所編輯的同一程式檔案都得到同步。</p>
+                    </section>
+
+                    <section>
+                        <h2>版本控制其實是...</h2>
+                        <img src="http://4.blog.xuite.net/4/9/9/0/12079516/blog_11619/txt/20637462/0.jpg">
+                        <p>可以回到過去的任何一個時間點。</p>
+                    </section>
+
+                    <section>
+                        <h2>版本控制也是...</h2>
+                        <p>善用 branch 可降低多人開發會遇到的問題</p>
+                        <img src="http://i.imm.io/LkLy.jpeg">
+                    </section>
+
+                    <section>
+                        <h2>總之，版本控制可以告訴我們</h2>
+                        <ul>
+                            <li>為什麼變更</li>
+                            <li>什麼時候變更</li>
+                            <li>變更了什麼</li>
+                            <li>是誰變更的</li>
+                            <li>切換到過去進度</li>
+                            <li>切換不同版本</li>
+                            <li>合併不同版本</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>多人開發使用版本控制後</h2>
+                        <img src="https://backlogtool.com/git-guide/tw/img/post/intro/capture_intro1_1_3.png">
+                        <p>當有人想覆蓋其他人的最新檔案時，系統會發出警告，因此可以避免在無意中覆蓋他人的編輯內容。</p>
+                    </section>
+
+                </section>
+
+                <section>
+                    <h2>安裝 Git</h2>
+                    <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png">
+                    <p><a href="https://goo.gl/vaIs1k" target="_blank">https://goo.gl/vaIs1k</a></p>
+                    <p>Mac OS X 本身就有 git 囉</p>
+                </section>
+
+                <section>
+
+                    <section>
+                        <h2>Git 基礎概念</h2>
+                        <img src="https://db.tt/FTDkPQUb">
+                    </section>
+
+                    <section>
+                        <h2>遠端數據庫和本地端數據庫</h2>
+                        <img src="https://backlogtool.com/git-guide/tw/img/post/intro/capture_intro1_2_2.png">
+                        <ul>
+                            <li>遠端數據庫：配有專用的伺服器 ( github )，為了讓多人共享而建立的數據庫 ( repository )。</li>
+                            <li>本地端數據庫：為了方便用戶個人使用，在自己的機器上配置的數據庫 ( repository )。</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Git 基礎指令</h2>
+                    </section>
+
+                    <section>
+                        <h2>初始化</h2>
+                        <pre><code class="git" data-trim>
+git init
+                        </code></pre>
+                        <p>幫你在專案身成所需要得檔案 .git，專案只要執行一次即可</p>
+                    </section>
+
+                    <section>
+                        <h2>設定身份</h2>
+                        <pre><code class="git" data-trim>
+git config --global user.name "名字"
+git config --global user.email "email"
+git config --list // 命令列出所有Git能找到的設定值
+git config --unset-all user.name // 清除 user.name
+                        </code></pre>
+                        <p>若使用 --global，所有的 git project 都會採用此資訊</p>
+                    </section>
+
+                    <section>
+                        <h2>檢視 Git 當前狀態</h2>
+                        <pre><code class="git" data-trim>
+git status
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>加到暫存區</h2>
+                        <pre><code class="git" data-trim>
+git add
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>送進 repository</h2>
+                        <pre><code class="git" data-trim>
+git commit
+git commit -m "commit message"
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>記錄</h2>
+                        <pre><code class="git" data-trim>
+git log
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>分支</h2>
+                        <pre><code class="git" data-trim>
+git branch // 顯示本機分支列表
+git branch -r // 顯示遠端 repository 分支列表
+git branch [new branch] // 新增分支
+git branch -D [new branch] // 刪除分支
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>切換</h2>
+                        <pre><code class="git" data-trim>
+git checkout [branch name | commit hash]
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>合併</h2>
+                        <pre><code class="git" data-trim>
+git merge [branch name] // 將 branch name 合併到目前分支上
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>遠端</h2>
+                        <pre><code class="git" data-trim>
+git remote add [remote name] git@HOSTPATH // 新增遠端
+git remote -v // 顯示遠端資訊
+git remote rm [remote name] // 刪除遠端
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>複製遠端 repository</h2>
+                        <pre><code class="git" data-trim>
+git clone git@HOSTPATH:directory name
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>更新至遠端</h2>
+                        <pre><code class="git" data-trim>
+git push [remote name] [branch name]
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>更新本地端</h2>
+                        <pre><code class="git" data-trim>
+git pull [remote name] [branch name]
+                        </code></pre>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Git 起步走</h2>
+                        <pre><code class="git" data-trim>
+1. cd project path
+2. git init
+3. git add index.html
+4. git commit -m "first commit"
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                        <p>提供的 Git 版本控制的平臺</p>
+                        <ul>
+                            <li>Public Repository is Free</li>
+                            <li>好用的介面</li>
+                            <li>github pages</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>註冊 Github</h2>
+                        <p><a href="https://github.com/join" target="_blank">傳送門</a></p>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Github Pages</h2>
+                        <p>如果想要發佈自己的網站，又不想花錢買網站空間，恰好你的網站只有靜態網頁（HTML、 CSS、 JavaScript），選 GitHub 就對了。</p>
+                    </section>
+
+                    <section>
+                        <h2>官方教學</h2>
+                        <p><a href="https://pages.github.com/" target="_blank">傳送門</a></p>
+                    </section>
+
+                    <section>
+                        <h2>如何將既有的專案發佈到 github pages</h2>
+                        <pre><code class="bash" data-trim>
+1. GitHub Create a new repository
+2. cd project path
+3. git init
+4. git add -A
+5. git commit
+6. git remote add origin git@HOSTPATH:directory name
+7. git checkout -b gh-pages
+8. git push -u origin gh-pages
+
+                        </code></pre>
+                    </section>
+
+                </section>
+
+                <section>
+                    <h1>Q &amp; A</h1>
+                </section>
+
+                <section>
+                    <h1>感謝各位</h1>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
